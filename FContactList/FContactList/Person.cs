@@ -10,11 +10,12 @@
     {
         public string Name { get; set; } = "";
         public string LastName { get; set; } = "";
+        public string Alias { get; set; } = "";
         public string Email { get; set; } = "";
         public string LinkedIn { get; set; } = "";
         public string Facebook { get; set; } = "";
         public string Instagram { get; set; } = "";
-        public string  Twitter { get; set; } = "";
+        public string Twitter { get; set; } = "";
         public string GitHub { get; set; } = "";
         public string BestFood { get; set; } = "";
         public string WorstFood { get; set; } = "";
@@ -23,5 +24,13 @@
         public DateTime BirthDate { get; set; } = new();
         public bool IsBlocked { get; set; } = false;
         public bool IsGhosted { get; set; } = false;
+        public int Age
+        {
+            get
+            {
+                TimeSpan temp = DateTime.Now - BirthDate;
+                return (int)(temp.Days / 365.25);
+            }
+        }
     }
 }
