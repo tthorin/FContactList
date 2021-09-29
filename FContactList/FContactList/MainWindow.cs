@@ -16,24 +16,18 @@
         public MainWindow()
         {
             InitializeComponent();
+
+            dataGridView1.DataSource = CL.Contacts;
             
             
             if (CL.Contacts.Find(x => x.Name == "Bettan") is not Person) CL.AddContact(new Person() { Name = "Bettan", LastName = "Lund" });
             List<string> fullNameList = new();
             foreach (var person in CL.Contacts)
             {
-                listBox1.Items.Add(person.Name + " " + person.LastName);
+                nameListBox.Items.Add(person.Name + " " + person.LastName);
             }
             
 
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CL.Contacts.Count >= listBox1.SelectedIndex)
-            {
-                textBox1.Text = CL.Contacts[listBox1.SelectedIndex].BirthDate.ToString();
-            }
         }
 
         private void addPersonBtn_Click(object sender, EventArgs e)
@@ -42,13 +36,25 @@
             acf.ShowDialog();
         }
 
-        private void MainWindow_Enter(object sender, EventArgs e)
+        private void MainWindow_Activated(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            nameListBox.Items.Clear();
             foreach (var person in CL.Contacts)
             {
-                listBox1.Items.Add(person.Name + " " + person.LastName);
+                nameListBox.Items.Add(person.Name + " " + person.LastName);
             }
+        }
+
+        private void nameListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CL.Contacts.Count >= nameListBox.SelectedIndex)
+            {
+                textBox1.Text = CL.Contacts[nameListBox.SelectedIndex].BirthDate.ToString();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

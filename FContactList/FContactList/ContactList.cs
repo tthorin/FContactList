@@ -65,7 +65,7 @@
         public void AddContact(Person newContact)
         {
             newContact.Name = newContact.Name.Substring(0, 1).ToUpper() + newContact.Name.Substring(1).ToLower();
-            newContact.LastName = newContact.LastName.Substring(0, 1).ToUpper() + newContact.LastName.Substring(1).ToLower();
+            if (!String.IsNullOrWhiteSpace(newContact.LastName)) newContact.LastName = newContact.LastName.Substring(0, 1).ToUpper() + newContact.LastName.Substring(1).ToLower();
             Contacts.Add(newContact);
             SaveList();
         }
