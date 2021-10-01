@@ -6,17 +6,18 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    class Person
+    public class Person
     {
-        public string Name { get; set; } = "";
-        public string LastName { get; set; } = "";
-        public string Alias { get; set; } = "";
-        public string Email { get; set; } = "";
-        public string LinkedIn { get; set; } = "";
-        public string Facebook { get; set; } = "";
-        public string Instagram { get; set; } = "";
-        public string Twitter { get; set; } = "";
-        public string GitHub { get; set; } = "";
+        public string Name { get; set; } = ""; //done
+        public string LastName { get; set; } = "";//done
+        public string FullName { get => Name + " " + LastName; }
+        public string Alias { get; set; } = "";//done
+        public string Email { get; set; } = "";//done
+        public string LinkedIn { get; set; } = "";//done
+        public string Facebook { get; set; } = "";//done
+        public string Instagram { get; set; } = "";//done
+        public string Twitter { get; set; } = "";//done
+        public string GitHub { get; set; } = ""; //done
         public string BestFood { get; set; } = "";
         public string WorstFood { get; set; } = "";
         public string FavouriteAnimal { get; set; } = "";
@@ -24,6 +25,7 @@
         public DateTime BirthDate { get; set; } = new();
         public bool IsBlocked { get; set; } = false;
         public bool IsGhosted { get; set; } = false;
+        public string Notes { get; set; }
         public int Age
         {
             get
@@ -31,6 +33,13 @@
                 TimeSpan temp = DateTime.Now - BirthDate;
                 return (int)(temp.Days / 365.25);
             }
+            
         }
+        public override string ToString()
+        {
+            return $"Namn: {Name}|Efternamn: {LastName}|Alias: {Alias}|Email: {Email}|LinkedIn: {LinkedIn}|Facebook: {Facebook}|Instagram: {Instagram}|Twitter: {Twitter}|GitHub: {GitHub}|Favoritmat: {BestFood}|Värsta mat:{WorstFood}|Favoritdjur: {FavouriteAnimal}|Födelsedatum: {BirthDate.ToString("dd MMM, yyyy")}|Anteckningar: {Notes}";
+        }
+        
+
     }
 }

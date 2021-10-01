@@ -27,6 +27,7 @@
             var source = new BindingSource(bindlist, null);//TODO: Clean up?
             dataGridView1.DataSource = source;//TODO: Clean up?
             nameBox.DataBindings.Add("Text", testP, "Name", false, DataSourceUpdateMode.OnPropertyChanged); //<<<=====TODO: DO THIS all over the place
+            
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -51,13 +52,16 @@
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            DialogResult answer = MessageBox.Show("Förlora all inmatning och stänga fönstret.", "Stäng Fönster", MessageBoxButtons.OKCancel);
+            DialogResult answer = MessageBox.Show("Förlora all inmatning och stäng fönstret.", "Stäng Fönster", MessageBoxButtons.OKCancel);
             if (answer == DialogResult.OK)
             {
                 this.Close();
             }
         }
 
-        
+        private void AddContactForm_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
