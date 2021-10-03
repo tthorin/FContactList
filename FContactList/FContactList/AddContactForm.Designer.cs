@@ -182,7 +182,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(178, 411);
+            this.saveButton.Location = new System.Drawing.Point(159, 345);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 14;
@@ -192,7 +192,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(415, 429);
+            this.cancelButton.Location = new System.Drawing.Point(240, 345);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 15;
@@ -283,6 +283,7 @@
             // favAnimalLabel
             // 
             this.favAnimalLabel.AutoSize = true;
+            this.favAnimalLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.favAnimalLabel.Location = new System.Drawing.Point(12, 190);
             this.favAnimalLabel.Name = "favAnimalLabel";
             this.favAnimalLabel.Size = new System.Drawing.Size(64, 15);
@@ -354,7 +355,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(918, 674);
+            this.ClientSize = new System.Drawing.Size(595, 373);
             this.Controls.Add(this.notesLabel);
             this.Controls.Add(this.notesBox);
             this.Controls.Add(this.blockedCheckBox);

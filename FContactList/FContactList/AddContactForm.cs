@@ -1,4 +1,9 @@
-﻿namespace FContactList
+﻿// -----------------------------------------------------------------------------------------------
+//  AddContactForm.cs by Thomas Thorin, Copyright (C) 2021.
+//  Published under GNU General Public License v3 (GPL-3)
+// -----------------------------------------------------------------------------------------------
+
+namespace FContactList
 {
     using System;
     using System.Collections.Generic;
@@ -22,10 +27,7 @@
             testP = cl.Contacts[0]; //TODO: Clean up
 
             InitializeComponent();
-
-            var bindlist = new BindingList<Person>(cl.Contacts); //TODO: Clean up?
-            var source = new BindingSource(bindlist, null);//TODO: Clean up?
-            dataGridView1.DataSource = source;//TODO: Clean up?
+            
             nameBox.DataBindings.Add("Text", testP, "Name", false, DataSourceUpdateMode.OnPropertyChanged); //<<<=====TODO: DO THIS all over the place
             
         }

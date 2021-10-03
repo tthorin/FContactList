@@ -1,60 +1,51 @@
-﻿namespace FContactList
+﻿// -----------------------------------------------------------------------------------------------
+//  ContactList.cs by Thomas Thorin, Copyright (C) 2021.
+//  Published under GNU General Public License v3 (GPL-3)
+// -----------------------------------------------------------------------------------------------
+
+namespace FContactList
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using static Helpers.ContactListIOHelpers;
 
     public class ContactList
     {
         public List<Person> Contacts { get; set; }
-        public string Path { get; set; } = "Contacts";
-        public string FileName { get; set; } = "contactlist";
+        private readonly string directory = "Contacts";
+        private readonly string fileName = "contactlist";
 
         public ContactList()
         {
-            Contacts = LoadList();
+            Contacts = Load();
         }
 
-        public ContactList(string path = "Contacts", string fileName = "contactlist")
+        public ContactList(string dir = "Contacts", string fileName = "contactlist")
         {
-            Path = path;
-            FileName = fileName;
-            Contacts = LoadList();
+            directory = dir;
+            this.fileName = fileName;
+            Contacts = Load();
         }
 
-        public List<Person> LoadList()
+        public void Save()
         {
-            string fileName = FileName + ".json";
-            List<Person> loadResult;
-            if (Directory.Exists(Path) && File.Exists($@"{Path}\{fileName}"))
-            {
-                string json = File.ReadAllText($@"{Path}\{fileName}");
-                loadResult = JsonConvert.DeserializeObject<List<Person>>(json);
-            }
-            else loadResult = new List<Person>();
-            return loadResult;
+            string path = Path.Combine(directory, fileName + ".json");
+            SaveList(Contacts, path);
         }
-
-        private void SaveList()
+        private List<Person> Load()
         {
-            string directory = "Contacts";
-            string fileName = "contactlist.json";
-            var file = JsonConvert.SerializeObject(Contacts, new JsonSerializerSettings
-            {
-                DefaultValueHandling = DefaultValueHandling.Ignore
-            });
-            if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
-            File.WriteAllText($@"{directory}\{fileName}", file);
+            string path = Path.Combine(directory, fileName + ".json");
+            return LoadList(path);
         }
 
         public List<string> BDaysThisMonth()
         {
             List<string> thisMonthsBdays = new();
-            foreach (var contact in Contacts)
+            foreach (Person contact in Contacts)
             {
                 int age = contact.Age + 1;
-                if (DateTime.Now.Month == contact.BirthDate.Month)
+                if (DateTime.Now.Month == contact.BirthDate.Month && !contact.IsBlocked)
                 {
                     thisMonthsBdays.Add($"{contact.FullName} fyller {age} den {contact.BirthDate.Day} {contact.BirthDate.Month}.");
                 }
@@ -64,13 +55,13 @@
 
         public void AddContact(Person newContact)
         {
-            if (!String.IsNullOrWhiteSpace(newContact.Name) && newContact.Name.Length > 2)
+            if (!string.IsNullOrWhiteSpace(newContact.Name) && newContact.Name.Length > 2)
                 newContact.Name = newContact.Name.Substring(0, 1).ToUpper() + newContact.Name.Substring(1).ToLower();
-            if (!String.IsNullOrWhiteSpace(newContact.LastName) && newContact.LastName.Length > 2)
+            if (!string.IsNullOrWhiteSpace(newContact.LastName) && newContact.LastName.Length > 2)
                 newContact.LastName = newContact.LastName.Substring(0, 1).ToUpper() + newContact.LastName.Substring(1).ToLower();
 
             Contacts.Add(newContact);
-            SaveList();
+            SaveList(Contacts, Path.Combine(directory, fileName + ".json"));
         }
     }
 }
