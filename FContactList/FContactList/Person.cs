@@ -27,7 +27,7 @@ namespace FContactList
         public string WorstFood { get; set; } = "";
         public string FavouriteAnimal { get; set; } = "";
         public string FavouriteMovieGenre { get; set; } = "";
-        public DateTime BirthDate { get; set; } = new();
+        public DateTime BirthDate { get; set; } = new DateTime(2000,1,1);
         public bool IsBlocked { get; set; } = false;
         public bool IsGhosted { get; set; } = false;
         public string Notes { get; set; }

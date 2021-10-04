@@ -63,5 +63,7 @@ namespace FContactList
             Contacts.Add(newContact);
             SaveList(Contacts, Path.Combine(directory, fileName + ".json"));
         }
+
+        
     }
 }

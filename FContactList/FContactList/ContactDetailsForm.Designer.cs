@@ -1,7 +1,7 @@
 ﻿namespace FContactList
 {
 
-    partial class AddContactForm
+    partial class ContactDetailsForm
     {
         /// <summary>
         /// Required designer variable.
