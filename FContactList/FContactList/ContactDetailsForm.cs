@@ -21,12 +21,15 @@ namespace FContactList
         private MainWindow mw;
         private Person person;
         private bool addingPerson = false;
+        private int index;
 
-        public ContactDetailsForm(MainWindow main)
+        public ContactDetailsForm(MainWindow main, int idx = 0)
         {
+            index = idx;
             mw = main;
-            person = new();
+            //person = new();
             InitializeComponent();
+            mw.contactBindingList.AllowEdit = false;
         }
         public void AddPerson()
         {
@@ -36,7 +39,7 @@ namespace FContactList
         }
         public void EditPerson(Person person)
         {
-            this.person = person;
+            this.person = (Person)mw.contactBindingList[index].Clone();
             SetupForm();
             this.Show();
         }
@@ -46,12 +49,14 @@ namespace FContactList
             SetUpAsViewWindow();
             this.Show();
         }
-        
+
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (addingPerson) mw.contactBindingList.Add(person);
+            if (!addingPerson) mw.contactBindingList[index] = person;
             mw.CL.Contacts = mw.contactBindingList.ToList();
+            mw.CL.Contacts.Sort(Person.CompareByFullName);
             mw.CL.Save();
             this.Close();
         }

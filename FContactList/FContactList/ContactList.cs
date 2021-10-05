@@ -61,9 +61,8 @@ namespace FContactList
                 newContact.LastName = newContact.LastName.Substring(0, 1).ToUpper() + newContact.LastName.Substring(1).ToLower();
 
             Contacts.Add(newContact);
-            SaveList(Contacts, Path.Combine(directory, fileName + ".json"));
+            Save();
         }
-
         
     }
 }

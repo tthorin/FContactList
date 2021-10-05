@@ -18,16 +18,20 @@ namespace FContactList
     public partial class MainWindow : Form
     {
         public ContactList CL { get; set; } = new();
-        internal BindingList<Person> contactBindingList;
-        BindingSource contactBindSource;
+        public BindingList<Person> contactBindingList;
+        
 
         //internal ContactList CL = new();
         public MainWindow()
         {
             InitializeComponent();
             contactBindingList = new BindingList<Person>(CL.Contacts);
-            contactBindSource = new BindingSource();
+            contactBindingList.ListChanged += ContactBindingList_ListChanged;
+            contactBindingList.AllowEdit = false;
+            
+            
             contactBindSource.DataSource = contactBindingList;
+            
 
 
             //var source = new BindingSource(testList, null);
@@ -45,6 +49,11 @@ namespace FContactList
 
         }
 
+        private void ContactBindingList_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            contactBindSource.ResetBindings(false);
+        }
+
         private void addPersonBtn_Click(object sender, EventArgs e)
         {
             ContactDetailsForm addForm = new ContactDetailsForm(this);
@@ -52,11 +61,15 @@ namespace FContactList
         }
 
         private void MainWindow_Activated(object sender, EventArgs e)
-        {
+        {   
+            //contactBindingList = new BindingList<Person>(CL.Contacts);
+            //contactBindingList.ResetBindings();
+            //contactBindSource.ResetBindings(false);
+            //nameListBox.Refresh();
             textBox2.Clear();
             textBox2.Lines = CL.BDaysThisMonth().ToArray();
-            
         }
+        
 
         private void nameListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -78,8 +91,18 @@ namespace FContactList
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            ContactDetailsForm editForm = new ContactDetailsForm(this);
+            ContactDetailsForm editForm = new ContactDetailsForm(this, nameListBox.SelectedIndex);
             editForm.EditPerson((Person)contactBindSource[nameListBox.SelectedIndex]);
+        }
+
+        private void contactBindSource_DataMemberChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hepp");
+        }
+
+        private void contactBindSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            //MessageBox.Show("list changed");
         }
     }
 }

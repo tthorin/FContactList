@@ -35,7 +35,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.addPersonBtn = new System.Windows.Forms.Button();
             this.firstNameCombo = new System.Windows.Forms.ComboBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.contactBindSource = new System.Windows.Forms.BindingSource(this.components);
             this.lastNameCombo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.blockedPicture = new System.Windows.Forms.PictureBox();
             this.ghostPicture = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blockedPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ghostPicture)).BeginInit();
@@ -93,9 +93,10 @@
             this.firstNameCombo.Size = new System.Drawing.Size(157, 22);
             this.firstNameCombo.TabIndex = 5;
             // 
-            // bindingSource1
+            // contactBindSource
             // 
-            this.bindingSource1.DataSource = this.nameListBox.Controls;
+            this.contactBindSource.DataMemberChanged += new System.EventHandler(this.contactBindSource_DataMemberChanged);
+            this.contactBindSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.contactBindSource_ListChanged);
             // 
             // lastNameCombo
             // 
@@ -221,7 +222,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "F Contacts";
             this.Activated += new System.EventHandler(this.MainWindow_Activated);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactBindSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blockedPicture)).EndInit();
@@ -237,7 +238,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button addPersonBtn;
         private System.Windows.Forms.ComboBox firstNameCombo;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ComboBox lastNameCombo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -247,6 +247,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox blockedPicture;
         private System.Windows.Forms.PictureBox ghostPicture;
+        public System.Windows.Forms.BindingSource contactBindSource;
     }
 }
 

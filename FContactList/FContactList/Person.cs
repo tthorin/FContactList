@@ -5,24 +5,25 @@
 
 namespace FContactList
 {
+using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Person
+    public class Person:ICloneable
     {
-        public string Name { get; set; } = ""; //done
-        public string LastName { get; set; } = "";//done
+        public string Name { get; set; } = ""; 
+        public string LastName { get; set; } = "";
         public string FullName { get => Name + " " + LastName; }
-        public string Alias { get; set; } = "";//done
-        public string Email { get; set; } = "";//done
-        public string LinkedIn { get; set; } = "";//done
-        public string Facebook { get; set; } = "";//done
-        public string Instagram { get; set; } = "";//done
-        public string Twitter { get; set; } = "";//done
-        public string GitHub { get; set; } = ""; //done
+        public string Alias { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string LinkedIn { get; set; } = "";
+        public string Facebook { get; set; } = "";
+        public string Instagram { get; set; } = "";
+        public string Twitter { get; set; } = "";
+        public string GitHub { get; set; } = ""; 
         public string BestFood { get; set; } = "";
         public string WorstFood { get; set; } = "";
         public string FavouriteAnimal { get; set; } = "";
@@ -44,7 +45,15 @@ namespace FContactList
         {
             return $"Namn: {Name}|Efternamn: {LastName}|Alias: {Alias}|Email: {Email}|LinkedIn: {LinkedIn}|Facebook: {Facebook}|Instagram: {Instagram}|Twitter: {Twitter}|GitHub: {GitHub}|Favoritmat: {BestFood}|Värsta mat:{WorstFood}|Favoritdjur: {FavouriteAnimal}|Födelsedatum: {BirthDate.ToString("dd MMM, yyyy")}|Anteckningar: {Notes}";
         }
-        
+        public static int CompareByFullName(Person p1, Person p2)
+        {
+            return string.Compare(p1.FullName, p2.FullName);
+        }
 
+        public object Clone()
+        {
+            string json = JsonConvert.SerializeObject(this, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore });
+            return JsonConvert.DeserializeObject<Person>(json);
+        }
     }
 }
