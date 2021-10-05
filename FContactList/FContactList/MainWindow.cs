@@ -56,7 +56,7 @@ namespace FContactList
 
         private void addPersonBtn_Click(object sender, EventArgs e)
         {
-            ContactDetailsForm addForm = new ContactDetailsForm(this);
+            ContactDetailsForm addForm = new(this, nameListBox.SelectedIndex);
             addForm.AddPerson();
         }
 
@@ -85,14 +85,14 @@ namespace FContactList
         }
         private void nameListBox_DoubleClick(object sender, EventArgs e)
         {
-            ContactDetailsForm showForm = new ContactDetailsForm(this);
-            showForm.ShowPerson((Person)contactBindSource[nameListBox.SelectedIndex]);
+            ContactDetailsForm showForm = new(this, nameListBox.SelectedIndex);
+            showForm.ShowPerson((Person)nameListBox.SelectedItem);
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
             ContactDetailsForm editForm = new ContactDetailsForm(this, nameListBox.SelectedIndex);
-            editForm.EditPerson((Person)contactBindSource[nameListBox.SelectedIndex]);
+            editForm.EditPerson((Person)nameListBox.SelectedItem);
         }
 
         private void contactBindSource_DataMemberChanged(object sender, EventArgs e)

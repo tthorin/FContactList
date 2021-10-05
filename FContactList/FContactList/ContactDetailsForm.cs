@@ -27,13 +27,13 @@ namespace FContactList
         {
             index = idx;
             mw = main;
-            //person = new();
             InitializeComponent();
             mw.contactBindingList.AllowEdit = false;
         }
         public void AddPerson()
         {
             addingPerson = true;
+            person = new();
             SetupForm();
             this.Show();
         }
@@ -45,7 +45,7 @@ namespace FContactList
         }
         public void ShowPerson(Person person)
         {
-            this.person = person;
+            this.person = (Person)mw.contactBindingList[index].Clone();
             SetUpAsViewWindow();
             this.Show();
         }
