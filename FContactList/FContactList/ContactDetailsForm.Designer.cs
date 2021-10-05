@@ -65,6 +65,7 @@
             this.blockedCheckBox = new System.Windows.Forms.CheckBox();
             this.notesBox = new System.Windows.Forms.TextBox();
             this.notesLabel = new System.Windows.Forms.Label();
+            this.tooShortNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +75,7 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(200, 23);
             this.nameBox.TabIndex = 1;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // nameLabel
             // 
@@ -182,21 +184,21 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(159, 345);
+            this.saveButton.Location = new System.Drawing.Point(399, 355);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(103, 23);
             this.saveButton.TabIndex = 14;
-            this.saveButton.Text = "Spara";
+            this.saveButton.Text = "Spara och stäng";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(240, 345);
+            this.cancelButton.Location = new System.Drawing.Point(508, 355);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 15;
-            this.cancelButton.Text = "Avbryt";
+            this.cancelButton.Text = "Stäng";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -316,7 +318,7 @@
             // ghostedcheckBox
             // 
             this.ghostedcheckBox.AutoSize = true;
-            this.ghostedcheckBox.Location = new System.Drawing.Point(501, 216);
+            this.ghostedcheckBox.Location = new System.Drawing.Point(501, 233);
             this.ghostedcheckBox.Name = "ghostedcheckBox";
             this.ghostedcheckBox.Size = new System.Drawing.Size(70, 19);
             this.ghostedcheckBox.TabIndex = 31;
@@ -326,7 +328,7 @@
             // blockedCheckBox
             // 
             this.blockedCheckBox.AutoSize = true;
-            this.blockedCheckBox.Location = new System.Drawing.Point(501, 241);
+            this.blockedCheckBox.Location = new System.Drawing.Point(501, 258);
             this.blockedCheckBox.Name = "blockedCheckBox";
             this.blockedCheckBox.Size = new System.Drawing.Size(78, 19);
             this.blockedCheckBox.TabIndex = 32;
@@ -335,27 +337,37 @@
             // 
             // notesBox
             // 
-            this.notesBox.Location = new System.Drawing.Point(82, 216);
+            this.notesBox.Location = new System.Drawing.Point(82, 231);
             this.notesBox.Multiline = true;
             this.notesBox.Name = "notesBox";
-            this.notesBox.Size = new System.Drawing.Size(413, 123);
+            this.notesBox.Size = new System.Drawing.Size(413, 118);
             this.notesBox.TabIndex = 33;
             // 
             // notesLabel
             // 
             this.notesLabel.AutoSize = true;
-            this.notesLabel.Location = new System.Drawing.Point(12, 217);
+            this.notesLabel.Location = new System.Drawing.Point(82, 213);
             this.notesLabel.Name = "notesLabel";
-            this.notesLabel.Size = new System.Drawing.Size(64, 15);
+            this.notesLabel.Size = new System.Drawing.Size(78, 15);
             this.notesLabel.TabIndex = 34;
-            this.notesLabel.Text = "Favoritdjur";
+            this.notesLabel.Text = "Anteckningar";
             // 
-            // AddContactForm
+            // tooShortNameLabel
+            // 
+            this.tooShortNameLabel.AutoSize = true;
+            this.tooShortNameLabel.Location = new System.Drawing.Point(159, 359);
+            this.tooShortNameLabel.Name = "tooShortNameLabel";
+            this.tooShortNameLabel.Size = new System.Drawing.Size(234, 15);
+            this.tooShortNameLabel.TabIndex = 35;
+            this.tooShortNameLabel.Text = "Förnamnet måste innehålla minst 2 tecken.";
+            // 
+            // ContactDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(595, 373);
+            this.ClientSize = new System.Drawing.Size(595, 390);
+            this.Controls.Add(this.tooShortNameLabel);
             this.Controls.Add(this.notesLabel);
             this.Controls.Add(this.notesBox);
             this.Controls.Add(this.blockedCheckBox);
@@ -390,9 +402,9 @@
             this.Controls.Add(this.twitterBox);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameBox);
-            this.Name = "AddContactForm";
+            this.Name = "ContactDetailsForm";
             this.Text = "AddContactForm";
-            this.Load += new System.EventHandler(this.AddContactForm_Load);
+            this.Load += new System.EventHandler(this.ContactDetailsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -436,5 +448,6 @@
         private System.Windows.Forms.CheckBox blockedCheckBox;
         private System.Windows.Forms.TextBox notesBox;
         private System.Windows.Forms.Label notesLabel;
+        private System.Windows.Forms.Label tooShortNameLabel;
     }
 }

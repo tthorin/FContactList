@@ -18,26 +18,78 @@ namespace FContactList
 
     internal partial class ContactDetailsForm : Form
     {
-        private ContactList cl;
+        private MainWindow mw;
         private Person person;
+        private bool addingPerson = false;
 
-        public ContactDetailsForm(ContactList cL)
+        public ContactDetailsForm(MainWindow main)
         {
-            cl = cL;
+            mw = main;
             person = new();
             InitializeComponent();
-            //nameBox.DataBindings.Add("Text", testP, "Name", false, DataSourceUpdateMode.OnPropertyChanged); //<<<=====TODO: DO THIS all over the place
-            
+        }
+        public void AddPerson()
+        {
+            addingPerson = true;
+            SetupForm();
+            this.Show();
         }
         public void EditPerson(Person person)
         {
             this.person = person;
-            SetDataBindings();
+            SetupForm();
             this.Show();
+        }
+        public void ShowPerson(Person person)
+        {
+            this.person = person;
+            SetUpAsViewWindow();
+            this.Show();
+        }
+        
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (addingPerson) mw.contactBindingList.Add(person);
+            mw.CL.Contacts = mw.contactBindingList.ToList();
+            mw.CL.Save();
+            this.Close();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult answer = MessageBox.Show("Stänga utan att spara?", "Stänga fönster", MessageBoxButtons.OKCancel);
+            if (answer == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+            VerifySaveButton();
+        }
+        private void SetupForm()
+        {
+            SetDataBindings();
+            VerifySaveButton();
+        }
+        private void VerifySaveButton()
+        {
+            if (nameBox.Text is null || nameBox.Text.Length < 2)
+            {
+                saveButton.Enabled = false;
+                tooShortNameLabel.Visible = true;
+            }
+            else
+            {
+                saveButton.Enabled = true;
+                tooShortNameLabel.Visible = false;
+            }
         }
         private void SetDataBindings()
         {
-            nameBox.DataBindings.Add("Text", person, "Name", false, DataSourceUpdateMode.OnPropertyChanged); //<<<=====TODO: DO THIS all over the place
+            nameBox.DataBindings.Add("Text", person, "Name", false, DataSourceUpdateMode.OnPropertyChanged);
             LastNameBox.DataBindings.Add("Text", person, "LastName", false, DataSourceUpdateMode.OnPropertyChanged);
             aliasBox.DataBindings.Add("Text", person, "Alias", false, DataSourceUpdateMode.OnPropertyChanged);
             dateTimePicker1.DataBindings.Add("Value", person, "BirthDate", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -54,41 +106,31 @@ namespace FContactList
             notesBox.DataBindings.Add("Text", person, "Notes", false, DataSourceUpdateMode.OnPropertyChanged);
             ghostedcheckBox.DataBindings.Add("Checked", person, "IsGhosted", false, DataSourceUpdateMode.OnPropertyChanged);
             blockedCheckBox.DataBindings.Add("Checked", person, "IsBlocked", false, DataSourceUpdateMode.OnPropertyChanged);
-            
-        }
-
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            //Person newPerson = new();
-            //if (String.IsNullOrWhiteSpace(nameBox.Text))
-            //    MessageBox.Show("Måste ange ett förnamn för att skapa en ny kontakt");
-            //else
-            //{
-            //    newPerson.Name = nameBox.Text;
-            //    newPerson.LastName = LastNameBox.Text;
-            //    newPerson.Alias = aliasBox.Text;
-            //    newPerson.Email = mailBox.Text;
-            //    newPerson.LinkedIn = linkedinBox.Text;
-            //    newPerson.Twitter = twitterBox.Text;
-            //    newPerson.BirthDate = dateTimePicker1.Value;
-            //    cl.AddContact(newPerson);
-            //    this.Close();
-            //}
 
         }
-
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void SetUpAsViewWindow()
         {
-            DialogResult answer = MessageBox.Show("Förlora all inmatning och stäng fönstret.", "Stäng Fönster", MessageBoxButtons.OKCancel);
-            if (answer == DialogResult.OK)
-            {
-                this.Close();
-            }
+            SetDataBindings();
+            VerifySaveButton();
+            nameBox.ReadOnly = true;
+            LastNameBox.ReadOnly = true;
+            aliasBox.ReadOnly = true;
+            dateTimePicker1.Enabled = false;
+            mailBox.ReadOnly = true;
+            linkedinBox.ReadOnly = true;
+            facebookBox.ReadOnly = true;
+            instagramBox.ReadOnly = true;
+            twitterBox.ReadOnly = true;
+            githubBox.ReadOnly = true;
+            bestFoodBox.ReadOnly = true;
+            worstFoodBox.ReadOnly = true;
+            favAnimalBox.ReadOnly = true;
+            favMovieGenreBox.ReadOnly = true;
         }
 
-        private void AddContactForm_Load(object sender, EventArgs e)
+        private void ContactDetailsForm_Load(object sender, EventArgs e)
         {
-
+            VerifySaveButton();
         }
     }
 }

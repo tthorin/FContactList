@@ -47,7 +47,7 @@ namespace FContactList
                 int age = contact.Age + 1;
                 if (DateTime.Now.Month == contact.BirthDate.Month && !contact.IsBlocked)
                 {
-                    thisMonthsBdays.Add($"{contact.FullName} fyller {age} den {contact.BirthDate.Day} {contact.BirthDate.Month}.");
+                    thisMonthsBdays.Add($"{contact.FullName} fyller {age} år den {contact.BirthDate.Day} {contact.BirthDate.ToString("MMMM")}.");
                 }
             }
             return thisMonthsBdays;
