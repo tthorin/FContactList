@@ -43,7 +43,7 @@ using Newtonsoft.Json;
         }
         public override string ToString()
         {
-            return $"Namn: {Name}|Efternamn: {LastName}|Alias: {Alias}|Email: {Email}|LinkedIn: {LinkedIn}|Facebook: {Facebook}|Instagram: {Instagram}|Twitter: {Twitter}|GitHub: {GitHub}|Favoritmat: {BestFood}|Värsta mat:{WorstFood}|Favoritdjur: {FavouriteAnimal}|Födelsedatum: {BirthDate.ToString("dd MMM, yyyy")}|Anteckningar: {Notes}";
+            return $"Namn: {Name}|Efternamn: {LastName}|Alias: {Alias}|Ålder: {Age}|Email: {Email}|LinkedIn: {LinkedIn}|Facebook: {Facebook}|Instagram: {Instagram}|Twitter: {Twitter}|GitHub: {GitHub}|Favoritmat: {BestFood}|Värsta mat: {WorstFood}|Favoritdjur: {FavouriteAnimal}|Födelsedatum: {BirthDate.ToString("dd MMM, yyyy")}|Anteckningar: {Notes}";
         }
         public static int CompareByFullName(Person p1, Person p2)
         {

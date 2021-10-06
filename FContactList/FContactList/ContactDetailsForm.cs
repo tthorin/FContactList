@@ -1,64 +1,58 @@
 ﻿// -----------------------------------------------------------------------------------------------
-//  AddContactForm.cs by Thomas Thorin, Copyright (C) 2021.
+//  ContactDetailsForm.cs by Thomas Thorin, Copyright (C) 2021.
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
 namespace FContactList
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
-    using static System.Net.Mime.MediaTypeNames;
 
     internal partial class ContactDetailsForm : Form
     {
-        private MainWindow mw;
+        private readonly MainWindow mw;
         private Person person;
         private bool addingPerson = false;
-        private int index;
+        private readonly int index;
 
         public ContactDetailsForm(MainWindow main, int idx = 0)
         {
             index = idx;
             mw = main;
             InitializeComponent();
-            mw.contactBindingList.AllowEdit = false;
         }
+
         public void AddPerson()
         {
             addingPerson = true;
             person = new();
             SetupForm();
-            this.Show();
+            Show();
         }
+
         public void EditPerson(Person person)
         {
-            this.person = (Person)mw.contactBindingList[index].Clone();
+            this.person = (Person)mw.CL.Contacts[index].Clone();
             SetupForm();
-            this.Show();
+            Show();
         }
+
         public void ShowPerson(Person person)
         {
-            this.person = (Person)mw.contactBindingList[index].Clone();
+            this.person = (Person)mw.CL.Contacts[index].Clone();
             SetUpAsViewWindow();
-            this.Show();
+            Show();
         }
 
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (addingPerson) mw.contactBindingList.Add(person);
-            if (!addingPerson) mw.contactBindingList[index] = person;
-            mw.CL.Contacts = mw.contactBindingList.ToList();
-            mw.CL.Contacts.Sort(Person.CompareByFullName);
+            if (addingPerson) mw.CL.AddContact(person);
+            else mw.CL.Contacts[index] = person;
+
             mw.CL.Save();
-            this.Close();
+
+            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -66,7 +60,7 @@ namespace FContactList
             DialogResult answer = MessageBox.Show("Stänga utan att spara?", "Stänga fönster", MessageBoxButtons.OKCancel);
             if (answer == DialogResult.OK)
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -74,11 +68,18 @@ namespace FContactList
         {
             VerifySaveButton();
         }
+
+        private void ContactDetailsForm_Load(object sender, EventArgs e)
+        {
+            VerifySaveButton();
+        }
+
         private void SetupForm()
         {
             SetDataBindings();
             VerifySaveButton();
         }
+
         private void VerifySaveButton()
         {
             if (nameBox.Text is null || nameBox.Text.Length < 2)
@@ -92,6 +93,7 @@ namespace FContactList
                 tooShortNameLabel.Visible = false;
             }
         }
+
         private void SetDataBindings()
         {
             nameBox.DataBindings.Add("Text", person, "Name", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -113,6 +115,7 @@ namespace FContactList
             blockedCheckBox.DataBindings.Add("Checked", person, "IsBlocked", false, DataSourceUpdateMode.OnPropertyChanged);
 
         }
+
         private void SetUpAsViewWindow()
         {
             SetDataBindings();
@@ -133,9 +136,6 @@ namespace FContactList
             favMovieGenreBox.ReadOnly = true;
         }
 
-        private void ContactDetailsForm_Load(object sender, EventArgs e)
-        {
-            VerifySaveButton();
-        }
+
     }
 }

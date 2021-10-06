@@ -29,8 +29,11 @@ namespace FContactList
         }
 
         public void Save()
-        {
+        {   
             string path = Path.Combine(directory, fileName + ".json");
+
+            Contacts.Sort(Person.CompareByFullName);
+
             SaveList(Contacts, path);
         }
         private List<Person> Load()
@@ -44,10 +47,12 @@ namespace FContactList
             List<string> thisMonthsBdays = new();
             foreach (Person contact in Contacts)
             {
-                int age = contact.Age + 1;
+                
                 if (DateTime.Now.Month == contact.BirthDate.Month && !contact.IsBlocked)
                 {
-                    thisMonthsBdays.Add($"{contact.FullName} fyller {age} år den {contact.BirthDate.Day} {contact.BirthDate.ToString("MMMM")}.");
+                    string tense = DateTime.Now.Day > contact.BirthDate.Day ? "fyllde" : "fyller";
+                    string when = DateTime.Now.Day == contact.BirthDate.Day ? "IDAG!" : $"den { contact.BirthDate.Day} { contact.BirthDate.ToString("MMMM")}.";
+                    thisMonthsBdays.Add($"{contact.FullName} {tense} {DateTime.Now.Year-contact.BirthDate.Year} år {when}");
                 }
             }
             return thisMonthsBdays;
@@ -63,6 +68,30 @@ namespace FContactList
             Contacts.Add(newContact);
             Save();
         }
-        
+
+        public void RemoveContact(int idx)
+        {
+            Contacts.RemoveAt(idx);
+            Save();
+        }
+
+        public List<string> GetAllGhosted()
+        {
+            List<string> allGhosted = new();
+            foreach (var person in Contacts)
+            {
+                if (person.IsGhosted) allGhosted.Add(person.FullName);
+            }
+            return allGhosted;
+        }
+        public List<string> GetAllBlocked()
+        {
+            List<string> allBlocked = new();
+            foreach (var person in Contacts)
+            {
+                if (person.IsBlocked) allBlocked.Add(person.FullName);
+            }
+            return allBlocked;
+        }
     }
 }
