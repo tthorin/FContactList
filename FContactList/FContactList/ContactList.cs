@@ -12,9 +12,14 @@ namespace FContactList
 
     public class ContactList
     {
-        public List<Person> Contacts { get; set; }
+        #region Private Fields
+
         private readonly string directory = "Contacts";
         private readonly string fileName = "contactlist";
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public ContactList()
         {
@@ -28,35 +33,15 @@ namespace FContactList
             Contacts = Load();
         }
 
-        public void Save()
-        {   
-            string path = Path.Combine(directory, fileName + ".json");
+        #endregion Public Constructors
 
-            Contacts.Sort(Person.CompareByFullName);
+        #region Public Properties
 
-            SaveList(Contacts, path);
-        }
-        private List<Person> Load()
-        {
-            string path = Path.Combine(directory, fileName + ".json");
-            return LoadList(path);
-        }
+        public List<Person> Contacts { get; set; }
 
-        public List<string> BDaysThisMonth()
-        {
-            List<string> thisMonthsBdays = new();
-            foreach (Person contact in Contacts)
-            {
-                
-                if (DateTime.Now.Month == contact.BirthDate.Month && !contact.IsBlocked)
-                {
-                    string tense = DateTime.Now.Day > contact.BirthDate.Day ? "fyllde" : "fyller";
-                    string when = DateTime.Now.Day == contact.BirthDate.Day ? "IDAG!" : $"den { contact.BirthDate.Day} { contact.BirthDate.ToString("MMMM")}.";
-                    thisMonthsBdays.Add($"{contact.FullName} {tense} {DateTime.Now.Year-contact.BirthDate.Year} år {when}");
-                }
-            }
-            return thisMonthsBdays;
-        }
+        #endregion Public Properties
+
+        #region Public Methods
 
         public void AddContact(Person newContact)
         {
@@ -69,29 +54,67 @@ namespace FContactList
             Save();
         }
 
+        public List<string> BDaysThisMonth()
+        {
+            List<string> thisMonthsBdays = new();
+            foreach (Person contact in Contacts)
+            {
+
+                if (DateTime.Now.Month == contact.BirthDate.Month && !contact.IsBlocked)
+                {
+                    string tense = DateTime.Now.Day > contact.BirthDate.Day ? "fyllde" : "fyller";
+                    string when = DateTime.Now.Day == contact.BirthDate.Day ? "IDAG!" : $"den { contact.BirthDate.Day} { contact.BirthDate.ToString("MMMM")}.";
+                    thisMonthsBdays.Add($"{contact.FullName} {tense} {DateTime.Now.Year - contact.BirthDate.Year} år {when}");
+                }
+            }
+            return thisMonthsBdays;
+        }
+
+        public List<string> GetAllBlocked()
+        {
+            List<string> allBlocked = new();
+            foreach (Person person in Contacts)
+            {
+                if (person.IsBlocked) allBlocked.Add(person.FullName);
+            }
+            return allBlocked;
+        }
+
+        public List<string> GetAllGhosted()
+        {
+            List<string> allGhosted = new();
+            foreach (Person person in Contacts)
+            {
+                if (person.IsGhosted) allGhosted.Add(person.FullName);
+            }
+            return allGhosted;
+        }
+
         public void RemoveContact(int idx)
         {
             Contacts.RemoveAt(idx);
             Save();
         }
 
-        public List<string> GetAllGhosted()
+        public void Save()
         {
-            List<string> allGhosted = new();
-            foreach (var person in Contacts)
-            {
-                if (person.IsGhosted) allGhosted.Add(person.FullName);
-            }
-            return allGhosted;
+            string path = Path.Combine(directory, fileName + ".json");
+
+            Contacts.Sort(Person.CompareByFullName);
+
+            SaveList(Contacts, path);
         }
-        public List<string> GetAllBlocked()
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        private List<Person> Load()
         {
-            List<string> allBlocked = new();
-            foreach (var person in Contacts)
-            {
-                if (person.IsBlocked) allBlocked.Add(person.FullName);
-            }
-            return allBlocked;
+            string path = Path.Combine(directory, fileName + ".json");
+            return LoadList(path);
         }
+
+        #endregion Private Methods
     }
 }

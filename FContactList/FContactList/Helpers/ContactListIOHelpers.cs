@@ -14,6 +14,8 @@ namespace FContactList.Helpers
 
     public static class ContactListIOHelpers
     {
+        #region Public Methods
+
         public static List<Person> LoadList(string path)
         {
             DirectoryInfo dir = Directory.GetParent(path);
@@ -40,24 +42,6 @@ namespace FContactList.Helpers
             return loadedList;
         }
 
-        private static List<Person> JsonToList(string json)
-        {
-            List<Person> listFromJson = new();
-            if (!string.IsNullOrWhiteSpace(json))
-            {
-                try
-                {
-                    listFromJson = JsonConvert.DeserializeObject<List<Person>>(json);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Kunde inte tolka kontaklistan.");
-                    ex.LogThis();
-                }
-            }
-            return listFromJson;
-        }
-
         public static void SaveList(List<Person> contactList, string path)
         {
             string file = ListToJson(contactList);
@@ -82,6 +66,27 @@ namespace FContactList.Helpers
             }
         }
 
+        #endregion Public Methods
+
+        #region Private Methods
+
+        private static List<Person> JsonToList(string json)
+        {
+            List<Person> listFromJson = new();
+            if (!string.IsNullOrWhiteSpace(json))
+            {
+                try
+                {
+                    listFromJson = JsonConvert.DeserializeObject<List<Person>>(json);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kunde inte tolka kontaklistan.");
+                    ex.LogThis();
+                }
+            }
+            return listFromJson;
+        }
         private static string ListToJson(List<Person> contactList)
         {
             string json = "";
@@ -97,5 +102,7 @@ namespace FContactList.Helpers
 
             return json;
         }
+
+        #endregion Private Methods
     }
 }

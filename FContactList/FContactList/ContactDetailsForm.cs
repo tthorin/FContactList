@@ -10,10 +10,16 @@ namespace FContactList
 
     internal partial class ContactDetailsForm : Form
     {
-        private readonly MainWindow mw;
-        private Person person;
-        private bool addingPerson = false;
+        #region Private Fields
+
         private readonly int index;
+        private readonly MainWindow mw;
+        private bool addingPerson = false;
+        private Person person;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public ContactDetailsForm(MainWindow main, int idx = 0)
         {
@@ -21,6 +27,10 @@ namespace FContactList
             mw = main;
             InitializeComponent();
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         public void AddPerson()
         {
@@ -44,16 +54,10 @@ namespace FContactList
             Show();
         }
 
+        #endregion Public Methods
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            if (addingPerson) mw.CL.AddContact(person);
-            else mw.CL.Contacts[index] = person;
 
-            mw.CL.Save();
-
-            Close();
-        }
+        #region Private Methods
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
@@ -64,36 +68,25 @@ namespace FContactList
             }
         }
 
-        private void nameBox_TextChanged(object sender, EventArgs e)
-        {
-            VerifySaveButton();
-        }
-
         private void ContactDetailsForm_Load(object sender, EventArgs e)
         {
             VerifySaveButton();
         }
 
-        private void SetupForm()
+        private void nameBox_TextChanged(object sender, EventArgs e)
         {
-            SetDataBindings();
             VerifySaveButton();
         }
 
-        private void VerifySaveButton()
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            if (nameBox.Text is null || nameBox.Text.Length < 2)
-            {
-                saveButton.Enabled = false;
-                tooShortNameLabel.Visible = true;
-            }
-            else
-            {
-                saveButton.Enabled = true;
-                tooShortNameLabel.Visible = false;
-            }
-        }
+            if (addingPerson) mw.CL.AddContact(person);
+            else mw.CL.Contacts[index] = person;
 
+            mw.CL.Save();
+
+            Close();
+        }
         private void SetDataBindings()
         {
             nameBox.DataBindings.Add("Text", person, "Name", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -136,6 +129,26 @@ namespace FContactList
             favMovieGenreBox.ReadOnly = true;
         }
 
+        private void SetupForm()
+        {
+            SetDataBindings();
+            VerifySaveButton();
+        }
 
+        private void VerifySaveButton()
+        {
+            if (nameBox.Text is null || nameBox.Text.Length < 2)
+            {
+                saveButton.Enabled = false;
+                tooShortNameLabel.Visible = true;
+            }
+            else
+            {
+                saveButton.Enabled = true;
+                tooShortNameLabel.Visible = false;
+            }
+        }
+
+        #endregion Private Methods
     }
 }

@@ -11,6 +11,8 @@ namespace FContactList.Extensions
 
     public static class Logger
     {
+        #region Public Methods
+
         public static void LogThis(this Exception ex)
         {
             string dir = "log";
@@ -35,5 +37,7 @@ namespace FContactList.Extensions
                 MessageBox.Show("Kunde ej skriva till logfilen.\r\n" + e.Message + "\r\n" + e.StackTrace);
             }
         }
+
+        #endregion Public Methods
     }
 }
