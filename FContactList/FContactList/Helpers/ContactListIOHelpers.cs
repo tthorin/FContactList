@@ -12,10 +12,16 @@ namespace FContactList.Helpers
     using System.IO;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Defines the <see cref="ContactListIOHelpers" />.
+    /// </summary>
     public static class ContactListIOHelpers
     {
-        #region Public Methods
-
+        /// <summary>
+        /// Attempts to load the contaclist from the specified path
+        /// </summary>
+        /// <param name="path">Path where the saved contactlist is located <see cref="string"/>.</param>
+        /// <returns>The loaded contactlist <see cref="List{Person}"/>.</returns>
         public static List<Person> LoadList(string path)
         {
             DirectoryInfo dir = Directory.GetParent(path);
@@ -42,6 +48,11 @@ namespace FContactList.Helpers
             return loadedList;
         }
 
+        /// <summary>
+        /// Saves the contactlist to the file spcified in the path variable.
+        /// </summary>
+        /// <param name="contactList">The contactlist (List<Person>) to save. <see cref="List{Person}"/>.</param>
+        /// <param name="path">Path where the file will be save at. <see cref="string"/>.</param>
         public static void SaveList(List<Person> contactList, string path)
         {
             string file = ListToJson(contactList);
@@ -66,10 +77,11 @@ namespace FContactList.Helpers
             }
         }
 
-        #endregion Public Methods
-
-        #region Private Methods
-
+        /// <summary>
+        /// Deserializes the json content to a List<Person>.
+        /// </summary>
+        /// <param name="json">Json formatted string. <see cref="string"/>.</param>
+        /// <returns>The deserialized <see cref="List{Person}"/>.</returns>
         private static List<Person> JsonToList(string json)
         {
             List<Person> listFromJson = new();
@@ -87,6 +99,12 @@ namespace FContactList.Helpers
             }
             return listFromJson;
         }
+
+        /// <summary>
+        /// Serializes a List<Person> to Json.
+        /// </summary>
+        /// <param name="contactList">The list to be serialized. <see cref="List{Person}"/>.</param>
+        /// <returns>The json formatted string to be returned. <see cref="string"/>.</returns>
         private static string ListToJson(List<Person> contactList)
         {
             string json = "";
@@ -102,7 +120,5 @@ namespace FContactList.Helpers
 
             return json;
         }
-
-        #endregion Private Methods
     }
 }
