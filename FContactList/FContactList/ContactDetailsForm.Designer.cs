@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactDetailsForm));
             this.nameBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.bdayLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.facebookLabel = new System.Windows.Forms.Label();
             this.facebookBox = new System.Windows.Forms.TextBox();
             this.intstagramLabel = new System.Windows.Forms.Label();
@@ -67,15 +65,15 @@
             this.notesBox = new System.Windows.Forms.TextBox();
             this.notesLabel = new System.Windows.Forms.Label();
             this.tooShortNameLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // nameBox
             // 
             this.nameBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nameBox.Location = new System.Drawing.Point(82, 12);
+            this.nameBox.Location = new System.Drawing.Point(105, 13);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(200, 23);
+            this.nameBox.Size = new System.Drawing.Size(228, 27);
             this.nameBox.TabIndex = 1;
             this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
@@ -83,9 +81,9 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nameLabel.Location = new System.Drawing.Point(36, 15);
+            this.nameLabel.Location = new System.Drawing.Point(47, 16);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(39, 15);
+            this.nameLabel.Size = new System.Drawing.Size(52, 21);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Namn";
             // 
@@ -93,116 +91,123 @@
             // 
             this.twitterLabel.AutoSize = true;
             this.twitterLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.twitterLabel.Location = new System.Drawing.Point(34, 132);
+            this.twitterLabel.Location = new System.Drawing.Point(41, 172);
             this.twitterLabel.Name = "twitterLabel";
-            this.twitterLabel.Size = new System.Drawing.Size(44, 15);
+            this.twitterLabel.Size = new System.Drawing.Size(58, 21);
             this.twitterLabel.TabIndex = 16;
             this.twitterLabel.Text = "Twitter";
             // 
             // twitterBox
             // 
             this.twitterBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.twitterBox.Location = new System.Drawing.Point(82, 129);
+            this.twitterBox.Location = new System.Drawing.Point(105, 169);
+            this.twitterBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.twitterBox.Name = "twitterBox";
-            this.twitterBox.Size = new System.Drawing.Size(200, 23);
+            this.twitterBox.Size = new System.Drawing.Size(228, 27);
             this.twitterBox.TabIndex = 17;
             // 
             // linkedinLabel
             // 
             this.linkedinLabel.AutoSize = true;
             this.linkedinLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkedinLabel.Location = new System.Drawing.Point(321, 74);
+            this.linkedinLabel.Location = new System.Drawing.Point(394, 95);
             this.linkedinLabel.Name = "linkedinLabel";
-            this.linkedinLabel.Size = new System.Drawing.Size(53, 15);
+            this.linkedinLabel.Size = new System.Drawing.Size(67, 21);
             this.linkedinLabel.TabIndex = 10;
             this.linkedinLabel.Text = "LinkedIn";
             // 
             // linkedinBox
             // 
             this.linkedinBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkedinBox.Location = new System.Drawing.Point(379, 71);
+            this.linkedinBox.Location = new System.Drawing.Point(467, 92);
+            this.linkedinBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.linkedinBox.Name = "linkedinBox";
-            this.linkedinBox.Size = new System.Drawing.Size(200, 23);
+            this.linkedinBox.Size = new System.Drawing.Size(228, 27);
             this.linkedinBox.TabIndex = 11;
             // 
             // mailLabel
             // 
             this.mailLabel.AutoSize = true;
             this.mailLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mailLabel.Location = new System.Drawing.Point(46, 74);
+            this.mailLabel.Location = new System.Drawing.Point(58, 95);
             this.mailLabel.Name = "mailLabel";
-            this.mailLabel.Size = new System.Drawing.Size(33, 15);
+            this.mailLabel.Size = new System.Drawing.Size(41, 21);
             this.mailLabel.TabIndex = 8;
             this.mailLabel.Text = "Mail";
             // 
             // aliasBox
             // 
             this.aliasBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.aliasBox.Location = new System.Drawing.Point(82, 42);
+            this.aliasBox.Location = new System.Drawing.Point(105, 53);
+            this.aliasBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.aliasBox.Name = "aliasBox";
-            this.aliasBox.Size = new System.Drawing.Size(200, 23);
+            this.aliasBox.Size = new System.Drawing.Size(228, 27);
             this.aliasBox.TabIndex = 5;
             // 
             // aliasLabel
             // 
             this.aliasLabel.AutoSize = true;
             this.aliasLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.aliasLabel.Location = new System.Drawing.Point(44, 45);
+            this.aliasLabel.Location = new System.Drawing.Point(56, 57);
             this.aliasLabel.Name = "aliasLabel";
-            this.aliasLabel.Size = new System.Drawing.Size(35, 15);
+            this.aliasLabel.Size = new System.Drawing.Size(43, 21);
             this.aliasLabel.TabIndex = 4;
             this.aliasLabel.Text = "Alias";
             // 
             // mailBox
             // 
             this.mailBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mailBox.Location = new System.Drawing.Point(82, 71);
+            this.mailBox.Location = new System.Drawing.Point(105, 92);
+            this.mailBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mailBox.Name = "mailBox";
-            this.mailBox.Size = new System.Drawing.Size(200, 23);
+            this.mailBox.Size = new System.Drawing.Size(228, 27);
             this.mailBox.TabIndex = 9;
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lastNameLabel.Location = new System.Drawing.Point(311, 15);
+            this.lastNameLabel.Location = new System.Drawing.Point(381, 16);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(63, 15);
+            this.lastNameLabel.Size = new System.Drawing.Size(81, 21);
             this.lastNameLabel.TabIndex = 2;
             this.lastNameLabel.Text = "Efternamn";
             // 
             // LastNameBox
             // 
             this.LastNameBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LastNameBox.Location = new System.Drawing.Point(379, 12);
+            this.LastNameBox.Location = new System.Drawing.Point(467, 13);
+            this.LastNameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastNameBox.Name = "LastNameBox";
-            this.LastNameBox.Size = new System.Drawing.Size(200, 23);
+            this.LastNameBox.Size = new System.Drawing.Size(228, 27);
             this.LastNameBox.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(379, 42);
+            this.dateTimePicker1.Location = new System.Drawing.Point(467, 53);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(228, 27);
             this.dateTimePicker1.TabIndex = 7;
             // 
             // bdayLabel
             // 
             this.bdayLabel.AutoSize = true;
             this.bdayLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bdayLabel.Location = new System.Drawing.Point(291, 48);
+            this.bdayLabel.Location = new System.Drawing.Point(352, 59);
             this.bdayLabel.Name = "bdayLabel";
-            this.bdayLabel.Size = new System.Drawing.Size(84, 15);
+            this.bdayLabel.Size = new System.Drawing.Size(109, 21);
             this.bdayLabel.TabIndex = 6;
             this.bdayLabel.Text = "Födelsedatum";
             // 
             // saveButton
             // 
             this.saveButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.saveButton.Location = new System.Drawing.Point(399, 355);
+            this.saveButton.Location = new System.Drawing.Point(455, 470);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(103, 23);
+            this.saveButton.Size = new System.Drawing.Size(130, 31);
             this.saveButton.TabIndex = 33;
             this.saveButton.Text = "Spara och stäng";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -211,9 +216,10 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cancelButton.Location = new System.Drawing.Point(508, 355);
+            this.cancelButton.Location = new System.Drawing.Point(592, 470);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(86, 31);
             this.cancelButton.TabIndex = 34;
             this.cancelButton.Text = "Stäng";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -223,125 +229,132 @@
             // 
             this.facebookLabel.AutoSize = true;
             this.facebookLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.facebookLabel.Location = new System.Drawing.Point(18, 103);
+            this.facebookLabel.Location = new System.Drawing.Point(23, 133);
             this.facebookLabel.Name = "facebookLabel";
-            this.facebookLabel.Size = new System.Drawing.Size(59, 15);
+            this.facebookLabel.Size = new System.Drawing.Size(76, 21);
             this.facebookLabel.TabIndex = 12;
             this.facebookLabel.Text = "Facebook";
             // 
             // facebookBox
             // 
             this.facebookBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.facebookBox.Location = new System.Drawing.Point(82, 100);
+            this.facebookBox.Location = new System.Drawing.Point(105, 130);
+            this.facebookBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.facebookBox.Name = "facebookBox";
-            this.facebookBox.Size = new System.Drawing.Size(200, 23);
+            this.facebookBox.Size = new System.Drawing.Size(228, 27);
             this.facebookBox.TabIndex = 13;
             // 
             // intstagramLabel
             // 
             this.intstagramLabel.AutoSize = true;
             this.intstagramLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.intstagramLabel.Location = new System.Drawing.Point(313, 103);
+            this.intstagramLabel.Location = new System.Drawing.Point(381, 133);
             this.intstagramLabel.Name = "intstagramLabel";
-            this.intstagramLabel.Size = new System.Drawing.Size(63, 15);
+            this.intstagramLabel.Size = new System.Drawing.Size(80, 21);
             this.intstagramLabel.TabIndex = 14;
             this.intstagramLabel.Text = "Instagram";
             // 
             // instagramBox
             // 
             this.instagramBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.instagramBox.Location = new System.Drawing.Point(379, 100);
+            this.instagramBox.Location = new System.Drawing.Point(467, 130);
+            this.instagramBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.instagramBox.Name = "instagramBox";
-            this.instagramBox.Size = new System.Drawing.Size(200, 23);
+            this.instagramBox.Size = new System.Drawing.Size(228, 27);
             this.instagramBox.TabIndex = 15;
             // 
             // githubLabel
             // 
             this.githubLabel.AutoSize = true;
             this.githubLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.githubLabel.Location = new System.Drawing.Point(328, 132);
+            this.githubLabel.Location = new System.Drawing.Point(401, 172);
             this.githubLabel.Name = "githubLabel";
-            this.githubLabel.Size = new System.Drawing.Size(45, 15);
+            this.githubLabel.Size = new System.Drawing.Size(60, 21);
             this.githubLabel.TabIndex = 18;
             this.githubLabel.Text = "GitHub";
             // 
             // githubBox
             // 
             this.githubBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.githubBox.Location = new System.Drawing.Point(379, 129);
+            this.githubBox.Location = new System.Drawing.Point(467, 169);
+            this.githubBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.githubBox.Name = "githubBox";
-            this.githubBox.Size = new System.Drawing.Size(200, 23);
+            this.githubBox.Size = new System.Drawing.Size(228, 27);
             this.githubBox.TabIndex = 19;
             // 
             // bestFoodLabel
             // 
             this.bestFoodLabel.AutoSize = true;
             this.bestFoodLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bestFoodLabel.Location = new System.Drawing.Point(15, 161);
+            this.bestFoodLabel.Location = new System.Drawing.Point(15, 211);
             this.bestFoodLabel.Name = "bestFoodLabel";
-            this.bestFoodLabel.Size = new System.Drawing.Size(66, 15);
+            this.bestFoodLabel.Size = new System.Drawing.Size(84, 21);
             this.bestFoodLabel.TabIndex = 20;
             this.bestFoodLabel.Text = "Favoriträtt";
             // 
             // bestFoodBox
             // 
             this.bestFoodBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bestFoodBox.Location = new System.Drawing.Point(82, 158);
+            this.bestFoodBox.Location = new System.Drawing.Point(105, 208);
+            this.bestFoodBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bestFoodBox.Name = "bestFoodBox";
-            this.bestFoodBox.Size = new System.Drawing.Size(200, 23);
+            this.bestFoodBox.Size = new System.Drawing.Size(228, 27);
             this.bestFoodBox.TabIndex = 21;
             // 
             // worstFoodLabel
             // 
             this.worstFoodLabel.AutoSize = true;
             this.worstFoodLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.worstFoodLabel.Location = new System.Drawing.Point(322, 161);
+            this.worstFoodLabel.Location = new System.Drawing.Point(394, 211);
             this.worstFoodLabel.Name = "worstFoodLabel";
-            this.worstFoodLabel.Size = new System.Drawing.Size(50, 15);
+            this.worstFoodLabel.Size = new System.Drawing.Size(67, 21);
             this.worstFoodLabel.TabIndex = 22;
             this.worstFoodLabel.Text = "Hat mat";
             // 
             // worstFoodBox
             // 
             this.worstFoodBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.worstFoodBox.Location = new System.Drawing.Point(379, 158);
+            this.worstFoodBox.Location = new System.Drawing.Point(467, 208);
+            this.worstFoodBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.worstFoodBox.Name = "worstFoodBox";
-            this.worstFoodBox.Size = new System.Drawing.Size(200, 23);
+            this.worstFoodBox.Size = new System.Drawing.Size(228, 27);
             this.worstFoodBox.TabIndex = 23;
             // 
             // favAnimalLabel
             // 
             this.favAnimalLabel.AutoSize = true;
             this.favAnimalLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.favAnimalLabel.Location = new System.Drawing.Point(12, 190);
+            this.favAnimalLabel.Location = new System.Drawing.Point(12, 249);
             this.favAnimalLabel.Name = "favAnimalLabel";
-            this.favAnimalLabel.Size = new System.Drawing.Size(69, 15);
+            this.favAnimalLabel.Size = new System.Drawing.Size(87, 21);
             this.favAnimalLabel.TabIndex = 24;
             this.favAnimalLabel.Text = "Favoritdjur";
             // 
             // favAnimalBox
             // 
             this.favAnimalBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.favAnimalBox.Location = new System.Drawing.Point(82, 187);
+            this.favAnimalBox.Location = new System.Drawing.Point(105, 246);
+            this.favAnimalBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.favAnimalBox.Name = "favAnimalBox";
-            this.favAnimalBox.Size = new System.Drawing.Size(200, 23);
+            this.favAnimalBox.Size = new System.Drawing.Size(228, 27);
             this.favAnimalBox.TabIndex = 25;
             // 
             // favMovieGenreBox
             // 
             this.favMovieGenreBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.favMovieGenreBox.Location = new System.Drawing.Point(379, 187);
+            this.favMovieGenreBox.Location = new System.Drawing.Point(467, 246);
+            this.favMovieGenreBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.favMovieGenreBox.Name = "favMovieGenreBox";
-            this.favMovieGenreBox.Size = new System.Drawing.Size(200, 23);
+            this.favMovieGenreBox.Size = new System.Drawing.Size(228, 27);
             this.favMovieGenreBox.TabIndex = 27;
             // 
             // favMovieGenreLabel
             // 
             this.favMovieGenreLabel.AutoSize = true;
             this.favMovieGenreLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.favMovieGenreLabel.Location = new System.Drawing.Point(286, 190);
+            this.favMovieGenreLabel.Location = new System.Drawing.Point(343, 252);
             this.favMovieGenreLabel.Name = "favMovieGenreLabel";
-            this.favMovieGenreLabel.Size = new System.Drawing.Size(92, 15);
+            this.favMovieGenreLabel.Size = new System.Drawing.Size(118, 21);
             this.favMovieGenreLabel.TabIndex = 26;
             this.favMovieGenreLabel.Text = "Favorit filmsort";
             // 
@@ -349,9 +362,10 @@
             // 
             this.ghostedcheckBox.AutoSize = true;
             this.ghostedcheckBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ghostedcheckBox.Location = new System.Drawing.Point(501, 233);
+            this.ghostedcheckBox.Location = new System.Drawing.Point(584, 308);
+            this.ghostedcheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ghostedcheckBox.Name = "ghostedcheckBox";
-            this.ghostedcheckBox.Size = new System.Drawing.Size(72, 19);
+            this.ghostedcheckBox.Size = new System.Drawing.Size(91, 25);
             this.ghostedcheckBox.TabIndex = 30;
             this.ghostedcheckBox.Text = "Ghostad";
             this.ghostedcheckBox.UseVisualStyleBackColor = true;
@@ -360,9 +374,10 @@
             // 
             this.blockedCheckBox.AutoSize = true;
             this.blockedCheckBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.blockedCheckBox.Location = new System.Drawing.Point(501, 258);
+            this.blockedCheckBox.Location = new System.Drawing.Point(584, 341);
+            this.blockedCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.blockedCheckBox.Name = "blockedCheckBox";
-            this.blockedCheckBox.Size = new System.Drawing.Size(81, 19);
+            this.blockedCheckBox.Size = new System.Drawing.Size(99, 25);
             this.blockedCheckBox.TabIndex = 31;
             this.blockedCheckBox.Text = "Blockerad";
             this.blockedCheckBox.UseVisualStyleBackColor = true;
@@ -370,19 +385,20 @@
             // notesBox
             // 
             this.notesBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.notesBox.Location = new System.Drawing.Point(82, 231);
+            this.notesBox.Location = new System.Drawing.Point(105, 305);
+            this.notesBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.notesBox.Multiline = true;
             this.notesBox.Name = "notesBox";
-            this.notesBox.Size = new System.Drawing.Size(413, 118);
+            this.notesBox.Size = new System.Drawing.Size(471, 156);
             this.notesBox.TabIndex = 29;
             // 
             // notesLabel
             // 
             this.notesLabel.AutoSize = true;
             this.notesLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.notesLabel.Location = new System.Drawing.Point(82, 213);
+            this.notesLabel.Location = new System.Drawing.Point(105, 281);
             this.notesLabel.Name = "notesLabel";
-            this.notesLabel.Size = new System.Drawing.Size(79, 15);
+            this.notesLabel.Size = new System.Drawing.Size(102, 21);
             this.notesLabel.TabIndex = 28;
             this.notesLabel.Text = "Anteckningar";
             // 
@@ -390,20 +406,20 @@
             // 
             this.tooShortNameLabel.AutoSize = true;
             this.tooShortNameLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tooShortNameLabel.Location = new System.Drawing.Point(150, 359);
+            this.tooShortNameLabel.Location = new System.Drawing.Point(138, 476);
             this.tooShortNameLabel.Name = "tooShortNameLabel";
-            this.tooShortNameLabel.Size = new System.Drawing.Size(243, 15);
+            this.tooShortNameLabel.Size = new System.Drawing.Size(311, 21);
             this.tooShortNameLabel.TabIndex = 32;
             this.tooShortNameLabel.Text = "Förnamnet måste innehålla minst 2 tecken.";
             // 
             // ContactDetailsForm
             // 
             this.AcceptButton = this.saveButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(595, 390);
+            this.ClientSize = new System.Drawing.Size(711, 508);
             this.Controls.Add(this.tooShortNameLabel);
             this.Controls.Add(this.notesLabel);
             this.Controls.Add(this.notesBox);
@@ -441,11 +457,11 @@
             this.Controls.Add(this.nameBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ContactDetailsForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "AddContactForm";
             this.Load += new System.EventHandler(this.ContactDetailsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,7 +485,6 @@
         private System.Windows.Forms.Label bdayLabel;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label facebookLabel;
         private System.Windows.Forms.TextBox facebookBox;
         private System.Windows.Forms.Label intstagramLabel;

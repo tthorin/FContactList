@@ -57,10 +57,11 @@
             // 
             this.nameListBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.nameListBox.FormattingEnabled = true;
-            this.nameListBox.ItemHeight = 18;
-            this.nameListBox.Location = new System.Drawing.Point(7, 78);
+            this.nameListBox.ItemHeight = 23;
+            this.nameListBox.Location = new System.Drawing.Point(8, 104);
+            this.nameListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nameListBox.Name = "nameListBox";
-            this.nameListBox.Size = new System.Drawing.Size(157, 292);
+            this.nameListBox.Size = new System.Drawing.Size(179, 395);
             this.nameListBox.TabIndex = 5;
             this.nameListBox.SelectedIndexChanged += new System.EventHandler(this.nameListBox_SelectedIndexChanged);
             this.nameListBox.DoubleClick += new System.EventHandler(this.nameListBox_DoubleClick);
@@ -68,18 +69,20 @@
             // selectedPersonInfoDisplay
             // 
             this.selectedPersonInfoDisplay.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.selectedPersonInfoDisplay.Location = new System.Drawing.Point(170, 78);
+            this.selectedPersonInfoDisplay.Location = new System.Drawing.Point(194, 104);
+            this.selectedPersonInfoDisplay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.selectedPersonInfoDisplay.Multiline = true;
             this.selectedPersonInfoDisplay.Name = "selectedPersonInfoDisplay";
             this.selectedPersonInfoDisplay.ReadOnly = true;
-            this.selectedPersonInfoDisplay.Size = new System.Drawing.Size(179, 292);
+            this.selectedPersonInfoDisplay.Size = new System.Drawing.Size(204, 395);
             this.selectedPersonInfoDisplay.TabIndex = 6;
             // 
             // addPersonBtn
             // 
-            this.addPersonBtn.Location = new System.Drawing.Point(145, 382);
+            this.addPersonBtn.Location = new System.Drawing.Point(166, 509);
+            this.addPersonBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.addPersonBtn.Name = "addPersonBtn";
-            this.addPersonBtn.Size = new System.Drawing.Size(75, 23);
+            this.addPersonBtn.Size = new System.Drawing.Size(86, 31);
             this.addPersonBtn.TabIndex = 8;
             this.addPersonBtn.Text = "Lägg till";
             this.addPersonBtn.UseVisualStyleBackColor = true;
@@ -90,9 +93,10 @@
             this.firstNameCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.firstNameCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.firstNameCombo.FormattingEnabled = true;
-            this.firstNameCombo.Location = new System.Drawing.Point(6, 20);
+            this.firstNameCombo.Location = new System.Drawing.Point(7, 27);
+            this.firstNameCombo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.firstNameCombo.Name = "firstNameCombo";
-            this.firstNameCombo.Size = new System.Drawing.Size(157, 22);
+            this.firstNameCombo.Size = new System.Drawing.Size(179, 26);
             this.firstNameCombo.TabIndex = 1;
             this.firstNameCombo.SelectedIndexChanged += new System.EventHandler(this.firstNameCombo_SelectedIndexChanged);
             // 
@@ -101,9 +105,10 @@
             this.lastNameCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.lastNameCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.lastNameCombo.FormattingEnabled = true;
-            this.lastNameCombo.Location = new System.Drawing.Point(7, 49);
+            this.lastNameCombo.Location = new System.Drawing.Point(8, 65);
+            this.lastNameCombo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lastNameCombo.Name = "lastNameCombo";
-            this.lastNameCombo.Size = new System.Drawing.Size(156, 22);
+            this.lastNameCombo.Size = new System.Drawing.Size(178, 26);
             this.lastNameCombo.TabIndex = 3;
             this.lastNameCombo.SelectedIndexChanged += new System.EventHandler(this.lastNameCombo_SelectedIndexChanged);
             // 
@@ -113,9 +118,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(170, 23);
+            this.label2.Location = new System.Drawing.Point(194, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 18);
+            this.label2.Size = new System.Drawing.Size(109, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Sök förnamn";
             // 
@@ -123,9 +128,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(170, 52);
+            this.label3.Location = new System.Drawing.Point(194, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 18);
+            this.label3.Size = new System.Drawing.Size(123, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Sök efternamn";
             // 
@@ -142,18 +147,21 @@
             this.groupBox1.Controls.Add(this.firstNameCombo);
             this.groupBox1.Controls.Add(this.lastNameCombo);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(365, 414);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(417, 552);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kontakter";
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(226, 382);
+            this.deleteButton.Location = new System.Drawing.Point(258, 509);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.Size = new System.Drawing.Size(86, 31);
             this.deleteButton.TabIndex = 9;
             this.deleteButton.Text = "Ta bort";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -161,9 +169,10 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(64, 382);
+            this.editButton.Location = new System.Drawing.Point(73, 509);
+            this.editButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.Size = new System.Drawing.Size(86, 31);
             this.editButton.TabIndex = 7;
             this.editButton.Text = "Ändra";
             this.editButton.UseVisualStyleBackColor = true;
@@ -173,10 +182,11 @@
             // 
             this.radioSelectedInfoDisplayTextBox.Enabled = false;
             this.radioSelectedInfoDisplayTextBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioSelectedInfoDisplayTextBox.Location = new System.Drawing.Point(408, 291);
+            this.radioSelectedInfoDisplayTextBox.Location = new System.Drawing.Point(466, 388);
+            this.radioSelectedInfoDisplayTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioSelectedInfoDisplayTextBox.Multiline = true;
             this.radioSelectedInfoDisplayTextBox.Name = "radioSelectedInfoDisplayTextBox";
-            this.radioSelectedInfoDisplayTextBox.Size = new System.Drawing.Size(306, 127);
+            this.radioSelectedInfoDisplayTextBox.Size = new System.Drawing.Size(349, 168);
             this.radioSelectedInfoDisplayTextBox.TabIndex = 14;
             // 
             // blockedPicture
@@ -184,9 +194,10 @@
             this.blockedPicture.BackColor = System.Drawing.Color.Transparent;
             this.blockedPicture.Enabled = false;
             this.blockedPicture.Image = ((System.Drawing.Image)(resources.GetObject("blockedPicture.Image")));
-            this.blockedPicture.Location = new System.Drawing.Point(383, 113);
+            this.blockedPicture.Location = new System.Drawing.Point(438, 151);
+            this.blockedPicture.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.blockedPicture.Name = "blockedPicture";
-            this.blockedPicture.Size = new System.Drawing.Size(75, 75);
+            this.blockedPicture.Size = new System.Drawing.Size(86, 100);
             this.blockedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.blockedPicture.TabIndex = 13;
             this.blockedPicture.TabStop = false;
@@ -196,9 +207,10 @@
             this.ghostPicture.BackColor = System.Drawing.Color.Transparent;
             this.ghostPicture.Enabled = false;
             this.ghostPicture.Image = ((System.Drawing.Image)(resources.GetObject("ghostPicture.Image")));
-            this.ghostPicture.Location = new System.Drawing.Point(383, 32);
+            this.ghostPicture.Location = new System.Drawing.Point(438, 43);
+            this.ghostPicture.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ghostPicture.Name = "ghostPicture";
-            this.ghostPicture.Size = new System.Drawing.Size(75, 75);
+            this.ghostPicture.Size = new System.Drawing.Size(86, 100);
             this.ghostPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ghostPicture.TabIndex = 14;
             this.ghostPicture.TabStop = false;
@@ -209,9 +221,10 @@
             this.bDayRadio.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bDayRadio.Checked = true;
             this.bDayRadio.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bDayRadio.Location = new System.Drawing.Point(3, 51);
+            this.bDayRadio.Location = new System.Drawing.Point(7, 66);
+            this.bDayRadio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bDayRadio.Name = "bDayRadio";
-            this.bDayRadio.Size = new System.Drawing.Size(159, 18);
+            this.bDayRadio.Size = new System.Drawing.Size(176, 22);
             this.bDayRadio.TabIndex = 13;
             this.bDayRadio.TabStop = true;
             this.bDayRadio.Text = "Månadens födelsadagar";
@@ -223,9 +236,10 @@
             this.blockedRadio.AutoSize = true;
             this.blockedRadio.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.blockedRadio.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.blockedRadio.Location = new System.Drawing.Point(86, 3);
+            this.blockedRadio.Location = new System.Drawing.Point(98, 4);
+            this.blockedRadio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.blockedRadio.Name = "blockedRadio";
-            this.blockedRadio.Size = new System.Drawing.Size(75, 18);
+            this.blockedRadio.Size = new System.Drawing.Size(85, 22);
             this.blockedRadio.TabIndex = 11;
             this.blockedRadio.Text = "Blockade";
             this.blockedRadio.UseVisualStyleBackColor = true;
@@ -236,9 +250,10 @@
             this.ghostedRadio.AutoSize = true;
             this.ghostedRadio.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ghostedRadio.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ghostedRadio.Location = new System.Drawing.Point(83, 27);
+            this.ghostedRadio.Location = new System.Drawing.Point(95, 36);
+            this.ghostedRadio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ghostedRadio.Name = "ghostedRadio";
-            this.ghostedRadio.Size = new System.Drawing.Size(78, 18);
+            this.ghostedRadio.Size = new System.Drawing.Size(88, 22);
             this.ghostedRadio.TabIndex = 12;
             this.ghostedRadio.Text = "Ghostade";
             this.ghostedRadio.UseVisualStyleBackColor = true;
@@ -250,18 +265,19 @@
             this.radioPanel.Controls.Add(this.bDayRadio);
             this.radioPanel.Controls.Add(this.blockedRadio);
             this.radioPanel.Controls.Add(this.ghostedRadio);
-            this.radioPanel.Location = new System.Drawing.Point(550, 212);
+            this.radioPanel.Location = new System.Drawing.Point(629, 283);
+            this.radioPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioPanel.Name = "radioPanel";
-            this.radioPanel.Size = new System.Drawing.Size(164, 73);
+            this.radioPanel.Size = new System.Drawing.Size(187, 97);
             this.radioPanel.TabIndex = 10;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(726, 430);
+            this.ClientSize = new System.Drawing.Size(827, 563);
             this.Controls.Add(this.radioPanel);
             this.Controls.Add(this.ghostPicture);
             this.Controls.Add(this.blockedPicture);
@@ -269,9 +285,10 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(746, 473);
-            this.MinimumSize = new System.Drawing.Size(746, 473);
+            this.MaximumSize = new System.Drawing.Size(849, 614);
+            this.MinimumSize = new System.Drawing.Size(849, 614);
             this.Name = "MainWindow";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "F Contacts";
